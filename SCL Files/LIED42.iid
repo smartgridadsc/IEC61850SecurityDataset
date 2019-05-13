@@ -1,0 +1,1093 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--SCL Schema Version 3.1 (2012/10/22)-->
+<SCL version="2007" revision="B" xmlns="http://www.iec.ch/61850/2003/SCL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.iec.ch/61850/2003/SCL SCL.xsd">
+	<Header id="" version="" revision="" toolID="OMICRON IEDScout" nameStructure="IEDName" />
+	<Communication>
+		<SubNetwork name="NONE" type="8-MMS">
+			<ConnectedAP iedName="LIED42" apName="P1">
+				<Address>
+					<P type="IP" xsi:type="tP_IP">172.16.1.11</P>
+					<P type="OSI-TSEL" xsi:type="tP_OSI-TSEL">0001</P>
+					<P type="OSI-SSEL" xsi:type="tP_OSI-SSEL">0001</P>
+					<P type="OSI-PSEL" xsi:type="tP_OSI-PSEL">00000001</P>
+					<P type="OSI-AP-Title">1,1,1,999,1</P>
+					<P type="OSI-AP-Invoke" xsi:type="tP_OSI-AP-Invoke">0</P>
+					<P type="OSI-AE-Qualifier" xsi:type="tP_OSI-AE-Qualifier">12</P>
+					<P type="OSI-AE-Invoke" xsi:type="tP_OSI-AE-Invoke">0</P>
+					<P type="MMS-Port" xsi:type="tP_MMS-Port">102</P>
+				</Address>
+				<GSE ldInst="PROT" cbName="Control_DataSet">
+					<Address>
+						<P type="MAC-Address" xsi:type="tP_MAC-Address">01-0c-cd-01-00-01</P>
+						<P type="APPID" xsi:type="tP_APPID">0004</P>
+						<P type="VLAN-ID" xsi:type="tP_VLAN-ID">000</P>
+						<P type="VLAN-PRIORITY" xsi:type="tP_VLAN-PRIORITY">4</P>
+					</Address>
+				</GSE>
+			</ConnectedAP>
+		</SubNetwork>
+	</Communication>
+	<IED name="LIED42">
+		<Services>
+			<DynAssociation />
+			<GetDirectory />
+			<GetDataObjectDefinition />
+			<DataObjectDirectory />
+			<GetDataSetValue />
+			<SetDataSetValue />
+			<DataSetDirectory />
+			<ConfDataSet max="3" modify="false" />
+			<DynDataSet max="42" />
+			<ReadWrite />
+			<SettingGroups>
+				<ConfSG />
+			</SettingGroups>
+			<ConfReportControl max="286" bufConf="false" />
+			<GetCBValues />
+			<ReportSettings rptID="Dyn" optFields="Dyn" bufTime="Dyn" trgOps="Dyn" intgPd="Dyn" owner="true" resvTms="true" />
+			<ConfLNs fixPrefix="true" fixLnInst="true" />
+			<GOOSE max="1" />
+			<GSSE max="0" />
+			<FileHandling />
+		</Services>
+		<AccessPoint name="P1">
+			<Server>
+				<Authentication none="true" />
+				<LDevice inst="CTRL">
+					<LN0 lnType="LIED42CTRL.LLN0" lnClass="LLN0" inst="">
+					</LN0>
+				</LDevice>
+				<LDevice inst="PROT">
+					<LN0 lnType="LIED42PROT.LLN0" lnClass="LLN0" inst="">
+						<SettingControl numOfSGs="4" actSG="1" />
+					</LN0>
+				</LDevice>
+				<LDevice inst="MEAS">
+					<LN0 lnType="LIED42DR.LLN0" lnClass="LLN0" inst="">
+						<DataSet name="Meas">
+							<FCDA ldInst="MEAS" prefix="" lnClass="MMXU" lnInst="" doName="A.phsA" daName="instCVal.mag.f" fc="MX" />
+							<FCDA ldInst="MEAS" prefix="" lnClass="MMXU" lnInst="" doName="A.phsB" daName="instCVal.mag.f" fc="MX" />
+							<FCDA ldInst="MEAS" prefix="" lnClass="MMXU" lnInst="" doName="A.phsC" daName="instCVal.mag.f" fc="MX" />
+							<FCDA ldInst="MEAS" prefix="" lnClass="MMXU" lnInst="" doName="PhV.phsA" daName="instCVal.mag.f" fc="MX" />
+							<FCDA ldInst="MEAS" prefix="" lnClass="MMXU" lnInst="" doName="PhV.phsB" daName="instCVal.mag.f" fc="MX" />
+							<FCDA ldInst="MEAS" prefix="" lnClass="MMXU" lnInst="" doName="PhV.phsC" daName="instCVal.mag.f" fc="MX" />
+							<FCDA ldInst="MEAS" prefix="" lnClass="MMXU" lnInst="" doName="TotW" daName="instMag.f" fc="MX" />
+							<FCDA ldInst="MEAS" prefix="" lnClass="MMXU" lnInst="" doName="TotVAr" daName="instMag.f" fc="MX" />
+							<FCDA ldInst="MEAS" prefix="" lnClass="MMXU" lnInst="" doName="Hz" daName="instMag.f" fc="MX" />
+							<FCDA ldInst="MEAS" prefix="" lnClass="MMXU" lnInst="" doName="TotPF" daName="instMag.f" fc="MX" />
+
+						</DataSet>	
+						<GSEControl name="Meas" type="GOOSE" datSet="Meas" appID="LIED42/MEAS/LLN0/Meas" confRev="10002" />
+					</LN0>
+					<LN lnType="LIED42MEAS.MMXU" prefix="" lnClass="MMXU" inst="">
+					</LN>
+				</LDevice>
+			</Server>
+		</AccessPoint>
+	</IED>
+	<DataTypeTemplates>
+		<LNodeType id="LIED42PROT.A50LCPTOC1" lnClass="PTOC">
+			<DO name="Op" type="LIED42PROT.A2759PTOV1.Op" />
+		</LNodeType>
+		<LNodeType id="LIED42PROT.PIOC" lnClass="PIOC">
+			<DO name="Op" type="LIED42PROT.A2759PTOV1.Op" />
+		</LNodeType>
+		<LNodeType id="LIED42PROT.XCBR" lnClass="XCBR">
+			<DO name="EEHealth" type="LIED42PROT.EEHealth" />
+		</LNodeType>
+		<LNodeType id="LIED42PROT.LPHD" lnClass="LPHD">
+			<DO name="PwrSupAlm" type="LIED42PROT.PwrSupAlm" />
+		</LNodeType>
+		<LNodeType id="LIED42PROT.PSCH" lnClass="PSCH">
+			<DO name="ProTx" type="LIED42PROT.ProTx" />
+			<DO name="ProRx" type="LIED42PROT.ProRx" />
+		</LNodeType>
+		<LNodeType id="LIED42CTRL.PTRC" lnClass="PTRC">
+			<DO name="EEHealth" type="LIED42CTRL.EEHealth" />
+		</LNodeType>
+		<LNodeType id="LIED42CTRL.XCBR" lnClass="XCBR">
+			<DO name="Loc" type="LIED42CTRL.Loc" />
+			<DO name="Pos" type="LIED42CTRL.Pos" />
+		</LNodeType>
+		<LNodeType id="LIED42CTRL.XSWI" lnClass="XSWI">
+			<DO name="Pos" type="LIED42CTRL.Pos" />
+		</LNodeType>
+		<LNodeType id="LIED42MEAS.MMXU" lnClass="MMXU">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="TotW" type="LIED42MEAS.MMXU1.TotW" />
+			<DO name="TotVAr" type="LIED42MEAS.MMXU1.TotW" />
+			<DO name="TotVA" type="LIED42MEAS.MMXU1.TotW" />
+			<DO name="TotPF" type="LIED42MEAS.MMXU1.TotW" />
+			<DO name="Hz" type="LIED42MEAS.MMXU1.TotW" />
+			<DO name="PPV" type="LIED42MEAS.MMXU1.PPV" />
+			<DO name="PhV" type="LIED42MEAS.MMXU1.PhV" />
+			<DO name="A" type="LIED42MEAS.MMXU1.A" />
+			<DO name="W" type="LIED42MEAS.Har2MMXU1.A" />
+			<DO name="VAr" type="LIED42MEAS.Har2MMXU1.A" />
+			<DO name="VA" type="LIED42MEAS.Har2MMXU1.A" />
+			<DO name="PF" type="LIED42MEAS.Har2MMXU1.A" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+
+
+		<DOType id="LIED42PROT.A2759PTOV1.Op" cdc="ACT">
+			<DA name="general" fc="ST" bType="BOOLEAN" />
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+		</DOType>
+		<DOType id="LIED42PROT.EEHealth" cdc="ACT">
+			<DA name="stVal" fc="ST" bType="INT32" />
+		</DOType>
+		<DOType id="LIED42PROT.PwrSupAlm" cdc="ACT">
+			<DA name="stVal" fc="ST" bType="BOOLEAN" />
+		</DOType>
+		<DOType id="LIED42PROT.ProTx" cdc="ACT">
+			<DA name="stVal" fc="ST" bType="BOOLEAN" />
+		</DOType>
+		<DOType id="LIED42PROT.ProRx" cdc="ACT">
+			<DA name="stVal" fc="ST" bType="BOOLEAN" />
+		</DOType>
+		<DOType id="LIED42CTRL.EEHealth" cdc="ACT">
+			<DA name="stVal" fc="ST" bType="INT32" />
+		</DOType>
+		<DOType id="LIED42CTRL.Loc" cdc="ACT">
+			<DA name="stVal" fc="ST" bType="BOOLEAN" />
+		</DOType>
+		<DOType id="LIED42CTRL.Pos" cdc="ACT">
+			<DA name="stVal" fc="ST" bType="INT32" />
+		</DOType>
+
+
+
+
+
+		<LNodeType id="LIED42CTRL.BI6GGIO1" lnClass="GGIO">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Ind1" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind2" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind3" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind4" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind5" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind6" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42CTRL.BO8GGIO1" lnClass="GGIO">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Ind1" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind2" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind3" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind4" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind5" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind6" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind7" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind8" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42CTRL.DPDOesGGIO1" lnClass="GGIO">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Loc" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="DPCSO" type="LIED42CTRL.DPDOesGGIO1.DPCSO" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42CTRL.DPi8GGIO1" lnClass="GGIO">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="DPCSO1" type="LIED42CTRL.DPi8GGIO1.DPCSO1" />
+			<DO name="DPCSO2" type="LIED42CTRL.DPi8GGIO1.DPCSO1" />
+			<DO name="DPCSO3" type="LIED42CTRL.DPi8GGIO1.DPCSO1" />
+			<DO name="DPCSO4" type="LIED42CTRL.DPi8GGIO1.DPCSO1" />
+			<DO name="DPCSO5" type="LIED42CTRL.DPi8GGIO1.DPCSO1" />
+			<DO name="DPCSO6" type="LIED42CTRL.DPi8GGIO1.DPCSO1" />
+			<DO name="DPCSO7" type="LIED42CTRL.DPi8GGIO1.DPCSO1" />
+			<DO name="DPCSO8" type="LIED42CTRL.DPi8GGIO1.DPCSO1" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42CTRL.DPo8GGIO1" lnClass="GGIO">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="DPCSO1" type="LIED42CTRL.DPo8GGIO1.DPCSO1" />
+			<DO name="DPCSO2" type="LIED42CTRL.DPo8GGIO1.DPCSO1" />
+			<DO name="DPCSO3" type="LIED42CTRL.DPo8GGIO1.DPCSO1" />
+			<DO name="DPCSO4" type="LIED42CTRL.DPo8GGIO1.DPCSO1" />
+			<DO name="DPCSO5" type="LIED42CTRL.DPo8GGIO1.DPCSO1" />
+			<DO name="DPCSO6" type="LIED42CTRL.DPo8GGIO1.DPCSO1" />
+			<DO name="DPCSO7" type="LIED42CTRL.DPo8GGIO1.DPCSO1" />
+			<DO name="DPCSO8" type="LIED42CTRL.DPo8GGIO1.DPCSO1" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42CTRL.E4GGIO1" lnClass="GGIO">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Ind1" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind2" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind3" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind4" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42CTRL.L9GGIO1" lnClass="GGIO">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Ind1" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind2" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind3" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind4" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind5" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind6" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind7" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind8" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind9" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42CTRL.SPDOesGGIO1" lnClass="GGIO">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Loc" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="SPCSO" type="LIED42CTRL.LLN0.LEDRs" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42CTRL.SPi64GGIO1" lnClass="GGIO">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="SPCSO1" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO2" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO3" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO4" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO5" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO6" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO7" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO8" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO9" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO10" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO11" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO12" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO13" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO14" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO15" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO16" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO17" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO18" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO19" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO20" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO21" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO22" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO23" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO24" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO25" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO26" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO27" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO28" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO29" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO30" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO31" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO32" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO33" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO34" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO35" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO36" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO37" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO38" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO39" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO40" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO41" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO42" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO43" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO44" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO45" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO46" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO47" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO48" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO49" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO50" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO51" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO52" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO53" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO54" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO55" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO56" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO57" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO58" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO59" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO60" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO61" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO62" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO63" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="SPCSO64" type="LIED42CTRL.SPi64GGIO1.SPCSO1" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42CTRL.SPo32GGIO1" lnClass="GGIO">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Ind1" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind2" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind3" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind4" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind5" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind6" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind7" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind8" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind9" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind10" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind11" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind12" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind13" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind14" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind15" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind16" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind17" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind18" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind19" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind20" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind21" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind22" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind23" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind24" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind25" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind26" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind27" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind28" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind29" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind30" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind31" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Ind32" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42PROT.CntDelGGIO1" lnClass="GGIO">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Loc" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="SPCSO" type="LIED42CTRL.LLN0.LEDRs" />
+			<DO name="ISCSO1" type="LIED42PROT.A50AFDSARC1.FACntRs" />
+			<DO name="ISCSO2" type="LIED42PROT.CntDelGGIO1.ISCSO2" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42CTRL.LLN0" lnClass="LLN0">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Loc" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="LEDRs" type="LIED42CTRL.LLN0.LEDRs" />
+			<DO name="NamPlt" type="LIED42CTRL.LLN0.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42DR.LLN0" lnClass="LLN0">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="NamPlt" type="LIED42CTRL.LLN0.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42PROT.LLN0" lnClass="LLN0">
+			<DO name="Mod" type="LIED42PROT.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="OpTmh" type="LIED42CTRL.Q0XCBR1.OpCnt" />
+			<DO name="NamPlt" type="LIED42CTRL.LLN0.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42CTRL.LPHD1" lnClass="LPHD">
+			<DO name="PhyHealth" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Proxy" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="PhyNam" type="LIED42CTRL.LPHD1.PhyNam" />
+		</LNodeType>
+		<LNodeType id="LIED42MEAS.MMTR1" lnClass="MMTR">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="SupWh" type="LIED42MEAS.MMTR1.SupWh" />
+			<DO name="SupVArh" type="LIED42MEAS.MMTR1.SupWh" />
+			<DO name="DmdWh" type="LIED42MEAS.MMTR1.SupWh" />
+			<DO name="DmdVArh" type="LIED42MEAS.MMTR1.SupWh" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42MEAS.Har2MMXU1" lnClass="MMXU">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="A" type="LIED42MEAS.Har2MMXU1.A" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42MEAS.MMXU1" lnClass="MMXU">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="TotW" type="LIED42MEAS.MMXU1.TotW" />
+			<DO name="TotVAr" type="LIED42MEAS.MMXU1.TotW" />
+			<DO name="TotVA" type="LIED42MEAS.MMXU1.TotW" />
+			<DO name="TotPF" type="LIED42MEAS.MMXU1.TotW" />
+			<DO name="Hz" type="LIED42MEAS.MMXU1.TotW" />
+			<DO name="PPV" type="LIED42MEAS.MMXU1.PPV" />
+			<DO name="PhV" type="LIED42MEAS.MMXU1.PhV" />
+			<DO name="A" type="LIED42MEAS.MMXU1.A" />
+			<DO name="W" type="LIED42MEAS.Har2MMXU1.A" />
+			<DO name="VAr" type="LIED42MEAS.Har2MMXU1.A" />
+			<DO name="VA" type="LIED42MEAS.Har2MMXU1.A" />
+			<DO name="PF" type="LIED42MEAS.Har2MMXU1.A" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42MEAS.MaxMMXU1" lnClass="MMXU">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="TotW" type="LIED42MEAS.MMXU1.TotW" />
+			<DO name="TotVAr" type="LIED42MEAS.MMXU1.TotW" />
+			<DO name="TotVA" type="LIED42MEAS.MMXU1.TotW" />
+			<DO name="Hz" type="LIED42MEAS.MMXU1.TotW" />
+			<DO name="PPV" type="LIED42MEAS.MMXU1.PPV" />
+			<DO name="PhV" type="LIED42MEAS.Har2MMXU1.A" />
+			<DO name="A" type="LIED42MEAS.Har2MMXU1.A" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42MEAS.I_MSQI1" lnClass="MSQI">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="SeqA" type="LIED42MEAS.I_MSQI1.SeqA" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42MEAS.V_MSQI1" lnClass="MSQI">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="SeqV" type="LIED42MEAS.I_MSQI1.SeqA" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42PROT.A32PDOP1" lnClass="PDOP">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Str" type="LIED42PROT.A2759PTOV1.Str" />
+			<DO name="Op" type="LIED42PROT.A2759PTOV1.Op" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42PROT.A32PDUP1" lnClass="PDUP">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Str" type="LIED42PROT.A2759PTOV1.Str" />
+			<DO name="Op" type="LIED42PROT.A2759PTOV1.Op" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42PROT.A81Hb2PHAR1" lnClass="PHAR">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Str" type="LIED42PROT.A2759PTOV1.Str" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42PROT.A46BcPTOC1" lnClass="PTOC">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Str" type="LIED42PROT.A37gPTUC1.Str" />
+			<DO name="Op" type="LIED42PROT.A2759PTOV1.Op" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+
+		<LNodeType id="LIED42PROT.A81PTOF1" lnClass="PTOF">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Str" type="LIED42PROT.A37gPTUC1.Str" />
+			<DO name="Op" type="LIED42PROT.A2759PTOV1.Op" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42PROT.A2759PTOV1" lnClass="PTOV">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Str" type="LIED42PROT.A2759PTOV1.Str" />
+			<DO name="Op" type="LIED42PROT.A2759PTOV1.Op" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42PROT.A47PTOV1" lnClass="PTOV">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Str" type="LIED42PROT.A37gPTUC1.Str" />
+			<DO name="Op" type="LIED42PROT.A2759PTOV1.Op" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42PROT.PTRC1" lnClass="PTRC">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="OpCntRs" type="LIED42PROT.A50AFDSARC1.FACntRs" />
+			<DO name="Tr" type="LIED42PROT.A2759PTOV1.Op" />
+			<DO name="Op" type="LIED42PROT.A2759PTOV1.Op" />
+			<DO name="Str" type="LIED42PROT.A37gPTUC1.Str" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42PROT.A49PTTR1" lnClass="PTTR">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Str" type="LIED42PROT.A37gPTUC1.Str" />
+			<DO name="Op" type="LIED42PROT.A2759PTOV1.Op" />
+			<DO name="AlmThm" type="LIED42PROT.A2759PTOV1.Op" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42PROT.A37PTUC1" lnClass="PTUC">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Str" type="LIED42PROT.A2759PTOV1.Str" />
+			<DO name="Op" type="LIED42PROT.A2759PTOV1.Op" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42PROT.A37gPTUC1" lnClass="PTUC">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Str" type="LIED42PROT.A37gPTUC1.Str" />
+			<DO name="Op" type="LIED42PROT.A2759PTOV1.Op" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42PROT.A81PTUF1" lnClass="PTUF">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Str" type="LIED42PROT.A37gPTUC1.Str" />
+			<DO name="Op" type="LIED42PROT.A2759PTOV1.Op" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42PROT.A2759PTUV1" lnClass="PTUV">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Str" type="LIED42PROT.A2759PTOV1.Str" />
+			<DO name="Op" type="LIED42PROT.A2759PTOV1.Op" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42PROT.A50BfRBRF1" lnClass="RBRF">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Str" type="LIED42PROT.A37gPTUC1.Str" />
+			<DO name="OpEx" type="LIED42PROT.A2759PTOV1.Op" />
+			<DO name="OpIn" type="LIED42PROT.A2759PTOV1.Op" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42DR.RDRE1" lnClass="RDRE">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="RcdMade" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="FltNum" type="LIED42CTRL.Q0XCBR1.OpCnt" />
+			<DO name="GriFltNum" type="LIED42CTRL.Q0XCBR1.OpCnt" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42PROT.A79RREC1" lnClass="RREC">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Op" type="LIED42PROT.A2759PTOV1.Op" />
+			<DO name="AutoRecSt" type="LIED42PROT.A79RREC1.AutoRecSt" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42PROT.A50AFDSARC1" lnClass="SARC">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="FACntRs" type="LIED42PROT.A50AFDSARC1.FACntRs" />
+			<DO name="FADet" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42CTRL.Q0XCBR1" lnClass="XCBR">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Loc" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="OpCnt" type="LIED42CTRL.Q0XCBR1.OpCnt" />
+			<DO name="Pos" type="LIED42CTRL.DPo8GGIO1.DPCSO1" />
+			<DO name="BlkOpn" type="LIED42CTRL.Q0XCBR1.BlkOpn" />
+			<DO name="BlkCls" type="LIED42CTRL.Q0XCBR1.BlkOpn" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+			<DO name="SumSwARs1" type="LIED42CTRL.Q0XCBR1.SumSwARs1" />
+			<DO name="SumSwARs2" type="LIED42CTRL.Q0XCBR1.SumSwARs1" />
+			<DO name="SumSwARs3" type="LIED42CTRL.Q0XCBR1.SumSwARs1" />
+			<DO name="CBOpCap" type="LIED42CTRL.Q0XCBR1.CBOpCap" />
+		</LNodeType>
+		<LNodeType id="LIED42CTRL.Q0CILO1" lnClass="CILO">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="EnaOpn" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="EnaCls" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<LNodeType id="LIED42CTRL.Q0CSWI1" lnClass="CSWI">
+			<DO name="Mod" type="LIED42CTRL.LLN0.Mod" />
+			<DO name="Beh" type="LIED42CTRL.LLN0.Beh" />
+			<DO name="Health" type="LIED42CTRL.LLN0.Health" />
+			<DO name="Loc" type="LIED42CTRL.LLN0.Loc" />
+			<DO name="Pos" type="LIED42CTRL.Q0CSWI1.Pos" />
+			<DO name="NamPlt" type="LIED42CTRL.BI6GGIO1.NamPlt" />
+		</LNodeType>
+		<DOType id="LIED42PROT.A2759PTOV1.Str" cdc="ACD">
+			<DA name="general" fc="ST" bType="BOOLEAN" />
+			<DA name="dirGeneral" fc="ST" bType="Enum" type="dir" />
+			<DA name="phsA" fc="ST" bType="BOOLEAN" />
+			<DA name="dirPhsA" fc="ST" bType="Enum" type="dir" />
+			<DA name="phsB" fc="ST" bType="BOOLEAN" />
+			<DA name="dirPhsB" fc="ST" bType="Enum" type="dir" />
+			<DA name="phsC" fc="ST" bType="BOOLEAN" />
+			<DA name="dirPhsC" fc="ST" bType="Enum" type="dir" />
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+		</DOType>
+		<DOType id="LIED42PROT.A37gPTUC1.Str" cdc="ACD">
+			<DA name="general" fc="ST" bType="BOOLEAN" />
+			<DA name="dirGeneral" fc="ST" bType="Enum" type="dir" />
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+		</DOType>
+
+		<DOType id="LIED42CTRL.Q0XCBR1.SumSwARs1" cdc="BCR">
+			<DA name="actVal" fc="ST" bType="INT32" />
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+			<DA name="units" fc="CF" bType="Struct" type="LIED42CTRL.Q0XCBR1.SumSwARs1.units" />
+			<DA name="pulsQty" fc="CF" bType="FLOAT32" />
+			<DA name="d" fc="DC" bType="VisString255" />
+			<DA name="dataNs" fc="EX" bType="VisString255" />
+		</DOType>
+		<DOType id="LIED42MEAS.MMTR1.SupWh" cdc="BCR">
+			<DA name="actVal" fc="ST" bType="INT32" />
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+			<DA name="units" fc="CF" bType="Struct" type="LIED42CTRL.Q0XCBR1.SumSwARs1.units" />
+			<DA name="pulsQty" fc="CF" bType="FLOAT32" />
+		</DOType>
+		<DOType id="LIED42MEAS.Har2MMXU1.A.phsA" cdc="CMV">
+			<DA name="instCVal" fc="MX" bType="Struct" type="LIED42MEAS.Har2MMXU1.A.phsA.instCVal" />
+			<DA name="cVal" fc="MX" bType="Struct" type="LIED42MEAS.Har2MMXU1.A.phsA.instCVal" />
+			<DA name="q" fc="MX" bType="Quality" />
+			<DA name="t" fc="MX" bType="Timestamp" />
+			<DA name="units" fc="CF" bType="Struct" type="LIED42CTRL.Q0XCBR1.SumSwARs1.units" />
+			<DA name="db" fc="CF" bType="INT32U" />
+		</DOType>
+		<DOType id="LIED42MEAS.MMXU1.PhV.phsA" cdc="CMV">
+			<DA name="instCVal" fc="MX" bType="Struct" type="LIED42MEAS.MMXU1.PhV.phsA.instCVal" />
+			<DA name="cVal" fc="MX" bType="Struct" type="LIED42MEAS.MMXU1.PhV.phsA.instCVal" />
+			<DA name="q" fc="MX" bType="Quality" />
+			<DA name="t" fc="MX" bType="Timestamp" />
+			<DA name="units" fc="CF" bType="Struct" type="LIED42CTRL.Q0XCBR1.SumSwARs1.units" />
+			<DA name="db" fc="CF" bType="INT32U" />
+		</DOType>
+		<DOType id="LIED42MEAS.MMXU1.PPV" cdc="DEL">
+			<SDO name="phsAB" type="LIED42MEAS.Har2MMXU1.A.phsA" />
+			<SDO name="phsBC" type="LIED42MEAS.Har2MMXU1.A.phsA" />
+			<SDO name="phsCA" type="LIED42MEAS.Har2MMXU1.A.phsA" />
+		</DOType>
+		<DOType id="LIED42CTRL.DPDOesGGIO1.DPCSO" cdc="DPC">
+			<DA name="origin" fc="ST" bType="Struct" type="LIED42CTRL.LLN0.LEDRs.origin" />
+			<DA name="ctlNum" fc="ST" bType="INT8U" />
+			<DA name="stVal" fc="ST" bType="Dbpos" />
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+			<DA name="Oper" fc="CO" bType="Struct" type="LIED42CTRL.LLN0.LEDRs.Oper" />
+			<DA name="ctlModel" fc="CF" bType="Enum" type="ctlModel" />
+		</DOType>
+		<DOType id="LIED42CTRL.DPi8GGIO1.DPCSO1" cdc="DPC">
+			<DA name="stVal" fc="ST" bType="Dbpos" />
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+			<DA name="ctlVal" fc="CO" bType="BOOLEAN" />
+			<DA name="ctlModel" fc="CF" bType="Enum" type="ctlModel" />
+		</DOType>
+		<DOType id="LIED42CTRL.DPo8GGIO1.DPCSO1" cdc="DPC">
+			<DA name="stVal" fc="ST" bType="Dbpos" />
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+			<DA name="ctlModel" fc="CF" bType="Enum" type="ctlModel" />
+		</DOType>
+		<DOType id="LIED42CTRL.Q0CSWI1.Pos" cdc="DPC">
+			<DA name="origin" fc="ST" bType="Struct" type="LIED42CTRL.LLN0.LEDRs.origin" />
+			<DA name="ctlNum" fc="ST" bType="INT8U" />
+			<DA name="stVal" fc="ST" bType="Dbpos" />
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+			<DA name="stSeld" fc="ST" bType="BOOLEAN" />
+			<DA name="SBOw" fc="CO" bType="Struct" type="LIED42CTRL.LLN0.LEDRs.Oper" />
+			<DA name="Oper" fc="CO" bType="Struct" type="LIED42CTRL.LLN0.LEDRs.Oper" />
+			<DA name="Cancel" fc="CO" bType="Struct" type="LIED42CTRL.Q0CSWI1.Pos.Cancel" />
+			<DA name="ctlModel" fc="CF" bType="Enum" type="ctlModel" />
+			<DA name="sboTimeout" fc="CF" bType="INT32U" />
+			<DA name="sboClass" fc="CF" bType="Enum" type="sboClass" />
+		</DOType>
+		<DOType id="LIED42CTRL.LPHD1.PhyNam" cdc="DPL">
+			<DA name="vendor" fc="DC" bType="VisString255" />
+			<DA name="hwRev" fc="DC" bType="VisString255" />
+			<DA name="swRev" fc="DC" bType="VisString255" />
+			<DA name="serNum" fc="DC" bType="VisString255" />
+			<DA name="model" fc="DC" bType="VisString255" />
+			<DA name="location" fc="DC" bType="VisString255" />
+		</DOType>
+		<DOType id="LIED42CTRL.LLN0.Mod" cdc="INC">
+			<DA name="stVal" fc="ST" bType="Enum" type="Mod" />
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+			<DA name="ctlModel" fc="CF" bType="Enum" type="ctlModel" />
+		</DOType>
+		<DOType id="LIED42PROT.LLN0.Mod" cdc="INC">
+			<DA name="origin" fc="ST" bType="Struct" type="LIED42CTRL.LLN0.LEDRs.origin" />
+			<DA name="ctlNum" fc="ST" bType="INT8U" />
+			<DA name="stVal" fc="ST" bType="Enum" type="Mod" />
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+			<DA name="Oper" fc="CO" bType="Struct" type="LIED42PROT.LLN0.Mod.Oper" />
+			<DA name="ctlModel" fc="CF" bType="Enum" type="ctlModel" />
+		</DOType>
+		<DOType id="LIED42PROT.A50AFDSARC1.FACntRs" cdc="INC">
+			<DA name="origin" fc="ST" bType="Struct" type="LIED42CTRL.LLN0.LEDRs.origin" />
+			<DA name="ctlNum" fc="ST" bType="INT8U" />
+			<DA name="stVal" fc="ST" bType="INT32" />
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+			<DA name="Oper" fc="CO" bType="Struct" type="LIED42PROT.A50AFDSARC1.FACntRs.Oper" />
+			<DA name="ctlModel" fc="CF" bType="Enum" type="ctlModel" />
+		</DOType>
+		<DOType id="LIED42PROT.CntDelGGIO1.ISCSO2" cdc="INC">
+			<DA name="stVal" fc="ST" bType="INT32" />
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+			<DA name="ctlModel" fc="CF" bType="Enum" type="ctlModel" />
+		</DOType>
+		<DOType id="LIED42CTRL.LLN0.Beh" cdc="INS">
+			<DA name="stVal" fc="ST" bType="Enum" type="Beh" />
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+		</DOType>
+		<DOType id="LIED42CTRL.LLN0.Health" cdc="INS">
+			<DA name="stVal" fc="ST" bType="Enum" type="Health" />
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+		</DOType>
+		<DOType id="LIED42CTRL.Q0XCBR1.OpCnt" cdc="INS">
+			<DA name="stVal" fc="ST" bType="INT32" />
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+		</DOType>
+		<DOType id="LIED42CTRL.Q0XCBR1.CBOpCap" cdc="INS">
+			<DA name="stVal" fc="ST" bType="Enum" type="CBOpCap" />
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+		</DOType>
+		<DOType id="LIED42PROT.A79RREC1.AutoRecSt" cdc="INS">
+			<DA name="stVal" fc="ST" bType="Enum" type="AutoRecSt" />
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+		</DOType>
+		<DOType id="LIED42CTRL.LLN0.NamPlt" cdc="LPL">
+			<DA name="vendor" fc="DC" bType="VisString255" />
+			<DA name="swRev" fc="DC" bType="VisString255" />
+			<DA name="d" fc="DC" bType="VisString255" />
+			<DA name="configRev" fc="DC" bType="VisString255" />
+			<DA name="ldNs" fc="EX" bType="VisString255" />
+		</DOType>
+		<DOType id="LIED42CTRL.BI6GGIO1.NamPlt" cdc="LPL">
+			<DA name="vendor" fc="DC" bType="VisString255" />
+			<DA name="swRev" fc="DC" bType="VisString255" />
+			<DA name="d" fc="DC" bType="VisString255" />
+			<DA name="configRev" fc="DC" bType="VisString255" />
+		</DOType>
+		<DOType id="LIED42MEAS.MMXU1.TotW" cdc="MV">
+			<DA name="instMag" fc="MX" bType="Struct" type="LIED42MEAS.Har2MMXU1.A.phsA.instCVal.mag" />
+			<DA name="mag" fc="MX" bType="Struct" type="LIED42MEAS.Har2MMXU1.A.phsA.instCVal.mag" />
+			<DA name="q" fc="MX" bType="Quality" />
+			<DA name="t" fc="MX" bType="Timestamp" />
+			<DA name="units" fc="CF" bType="Struct" type="LIED42CTRL.Q0XCBR1.SumSwARs1.units" />
+			<DA name="db" fc="CF" bType="INT32U" />
+		</DOType>
+		<DOType id="LIED42MEAS.I_MSQI1.SeqA" cdc="SEQ">
+			<SDO name="c1" type="LIED42MEAS.Har2MMXU1.A.phsA" />
+			<SDO name="c2" type="LIED42MEAS.Har2MMXU1.A.phsA" />
+			<SDO name="c3" type="LIED42MEAS.Har2MMXU1.A.phsA" />
+			<DA name="seqT" fc="MX" bType="Enum" type="seqT" />
+		</DOType>
+		<DOType id="LIED42CTRL.LLN0.LEDRs" cdc="SPC">
+			<DA name="origin" fc="ST" bType="Struct" type="LIED42CTRL.LLN0.LEDRs.origin" />
+			<DA name="ctlNum" fc="ST" bType="INT8U" />
+			<DA name="stVal" fc="ST" bType="BOOLEAN" />
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+			<DA name="Oper" fc="CO" bType="Struct" type="LIED42CTRL.LLN0.LEDRs.Oper" />
+			<DA name="ctlModel" fc="CF" bType="Enum" type="ctlModel" />
+		</DOType>
+		<DOType id="LIED42CTRL.Q0XCBR1.BlkOpn" cdc="SPC">
+			<DA name="stVal" fc="ST" bType="BOOLEAN" />
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+			<DA name="ctlModel" fc="CF" bType="Enum" type="ctlModel" />
+		</DOType>
+		<DOType id="LIED42CTRL.SPi64GGIO1.SPCSO1" cdc="SPC">
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+			<DA name="ctlVal" fc="CO" bType="BOOLEAN" />
+			<DA name="ctlModel" fc="CF" bType="Enum" type="ctlModel" />
+		</DOType>
+		<DOType id="LIED42CTRL.LLN0.Loc" cdc="SPS">
+			<DA name="stVal" fc="ST" bType="BOOLEAN" />
+			<DA name="q" fc="ST" bType="Quality" />
+			<DA name="t" fc="ST" bType="Timestamp" />
+		</DOType>
+		<DOType id="LIED42MEAS.Har2MMXU1.A" cdc="WYE">
+			<SDO name="phsA" type="LIED42MEAS.Har2MMXU1.A.phsA" />
+			<SDO name="phsB" type="LIED42MEAS.Har2MMXU1.A.phsA" />
+			<SDO name="phsC" type="LIED42MEAS.Har2MMXU1.A.phsA" />
+		</DOType>
+		<DOType id="LIED42MEAS.MMXU1.PhV" cdc="WYE">
+			<SDO name="phsA" type="LIED42MEAS.MMXU1.PhV.phsA" />
+			<SDO name="phsB" type="LIED42MEAS.MMXU1.PhV.phsA" />
+			<SDO name="phsC" type="LIED42MEAS.MMXU1.PhV.phsA" />
+			<SDO name="res" type="LIED42MEAS.MMXU1.PhV.phsA" />
+			<DA name="angRef" fc="CF" bType="Enum" type="angid" />
+		</DOType>
+		<DOType id="LIED42MEAS.MMXU1.A" cdc="WYE">
+			<SDO name="phsA" type="LIED42MEAS.MMXU1.PhV.phsA" />
+			<SDO name="phsB" type="LIED42MEAS.MMXU1.PhV.phsA" />
+			<SDO name="phsC" type="LIED42MEAS.MMXU1.PhV.phsA" />
+			<SDO name="neut" type="LIED42MEAS.MMXU1.PhV.phsA" />
+			<SDO name="res" type="LIED42MEAS.MMXU1.PhV.phsA" />
+			<DA name="angRef" fc="CF" bType="Enum" type="angid" />
+		</DOType>
+		<DAType id="LIED42MEAS.Har2MMXU1.A.phsA.instCVal.mag">
+			<BDA name="f" bType="FLOAT32" />
+		</DAType>
+		<DAType id="LIED42CTRL.LLN0.LEDRs.origin">
+			<BDA name="orCat" bType="Enum" type="orCategory" />
+			<BDA name="orIdent" bType="Octet64" />
+		</DAType>
+		<DAType id="LIED42CTRL.LLN0.LEDRs.Oper.origin">
+			<BDA name="orCat" bType="Enum" type="orCategory" />
+			<BDA name="orIdent" bType="Octet64" />
+		</DAType>
+		<DAType id="LIED42CTRL.Q0XCBR1.SumSwARs1.units">
+			<BDA name="SIUnit" bType="Enum" type="SIUnit" />
+			<BDA name="multiplier" bType="Enum" type="multiplier" />
+		</DAType>
+		<DAType id="LIED42MEAS.Har2MMXU1.A.phsA.instCVal">
+			<BDA name="mag" bType="Struct" type="LIED42MEAS.Har2MMXU1.A.phsA.instCVal.mag" />
+		</DAType>
+		<DAType id="LIED42MEAS.MMXU1.PhV.phsA.instCVal">
+			<BDA name="mag" bType="Struct" type="LIED42MEAS.Har2MMXU1.A.phsA.instCVal.mag" />
+			<BDA name="ang" bType="Struct" type="LIED42MEAS.Har2MMXU1.A.phsA.instCVal.mag" />
+		</DAType>
+		<DAType id="LIED42CTRL.LLN0.LEDRs.Oper">
+			<BDA name="ctlVal" bType="BOOLEAN" />
+			<BDA name="origin" bType="Struct" type="LIED42CTRL.LLN0.LEDRs.Oper.origin" />
+			<BDA name="ctlNum" bType="INT8U" />
+			<BDA name="T" bType="Timestamp" />
+			<BDA name="Test" bType="BOOLEAN" />
+			<BDA name="Check" bType="Check" />
+		</DAType>
+		<DAType id="LIED42CTRL.Q0CSWI1.Pos.Cancel">
+			<BDA name="ctlVal" bType="BOOLEAN" />
+			<BDA name="origin" bType="Struct" type="LIED42CTRL.LLN0.LEDRs.Oper.origin" />
+			<BDA name="ctlNum" bType="INT8U" />
+			<BDA name="T" bType="Timestamp" />
+			<BDA name="Test" bType="BOOLEAN" />
+		</DAType>
+		<DAType id="LIED42PROT.LLN0.Mod.Oper">
+			<BDA name="ctlVal" bType="Enum" type="Mod" />
+			<BDA name="origin" bType="Struct" type="LIED42CTRL.LLN0.LEDRs.Oper.origin" />
+			<BDA name="ctlNum" bType="INT8U" />
+			<BDA name="T" bType="Timestamp" />
+			<BDA name="Test" bType="BOOLEAN" />
+			<BDA name="Check" bType="Check" />
+		</DAType>
+		<DAType id="LIED42PROT.A50AFDSARC1.FACntRs.Oper">
+			<BDA name="ctlVal" bType="INT32" />
+			<BDA name="origin" bType="Struct" type="LIED42CTRL.LLN0.LEDRs.Oper.origin" />
+			<BDA name="ctlNum" bType="INT8U" />
+			<BDA name="T" bType="Timestamp" />
+			<BDA name="Test" bType="BOOLEAN" />
+			<BDA name="Check" bType="Check" />
+		</DAType>
+		<EnumType id="ctlModel">
+			<!--Source: IEC 61850-7-3:2003-->
+			<EnumVal ord="0">status-only</EnumVal>
+			<EnumVal ord="1">direct-with-normal-security</EnumVal>
+			<EnumVal ord="2">sbo-with-normal-security</EnumVal>
+			<EnumVal ord="3">direct-with-enhanced-security</EnumVal>
+			<EnumVal ord="4">sbo-with-enhanced-security</EnumVal>
+		</EnumType>
+		<EnumType id="sboClass">
+			<!--Source: IEC 61850-7-3:2003-->
+			<EnumVal ord="0">operate-once</EnumVal>
+			<EnumVal ord="1">operate-many</EnumVal>
+		</EnumType>
+		<EnumType id="orCategory">
+			<!--Source: IEC 61850-7-3:2003-->
+			<EnumVal ord="0">not-supported</EnumVal>
+			<EnumVal ord="1">bay-control</EnumVal>
+			<EnumVal ord="2">station-control</EnumVal>
+			<EnumVal ord="3">remote-control</EnumVal>
+			<EnumVal ord="4">automatic-bay</EnumVal>
+			<EnumVal ord="5">automatic-station</EnumVal>
+			<EnumVal ord="6">automatic-remote</EnumVal>
+			<EnumVal ord="7">maintenance</EnumVal>
+			<EnumVal ord="8">process</EnumVal>
+		</EnumType>
+		<EnumType id="multiplier">
+			<!--Source: IEC 61850-7-3:2003-->
+			<EnumVal ord="-24">y</EnumVal>
+			<EnumVal ord="-21">z</EnumVal>
+			<EnumVal ord="-18">a</EnumVal>
+			<EnumVal ord="-15">f</EnumVal>
+			<EnumVal ord="-12">p</EnumVal>
+			<EnumVal ord="-9">n</EnumVal>
+			<EnumVal ord="-6">µ</EnumVal>
+			<EnumVal ord="-3">m</EnumVal>
+			<EnumVal ord="-2">c</EnumVal>
+			<EnumVal ord="-1">d</EnumVal>
+			<EnumVal ord="0"/>
+			<EnumVal ord="1">da</EnumVal>
+			<EnumVal ord="2">h</EnumVal>
+			<EnumVal ord="3">k</EnumVal>
+			<EnumVal ord="6">M</EnumVal>
+			<EnumVal ord="9">G</EnumVal>
+			<EnumVal ord="12">T</EnumVal>
+			<EnumVal ord="15">P</EnumVal>
+			<EnumVal ord="18">E</EnumVal>
+			<EnumVal ord="21">Z</EnumVal>
+			<EnumVal ord="24">Y</EnumVal>
+		</EnumType>
+		<EnumType id="SIUnit">
+			<!--Source: IEC 61850-7-3:2003-->
+			<EnumVal ord="1"/>
+			<EnumVal ord="2">m</EnumVal>
+			<EnumVal ord="3">kg</EnumVal>
+			<EnumVal ord="4">s</EnumVal>
+			<EnumVal ord="5">A</EnumVal>
+			<EnumVal ord="6">K</EnumVal>
+			<EnumVal ord="7">mol</EnumVal>
+			<EnumVal ord="8">cd</EnumVal>
+			<EnumVal ord="9">deg</EnumVal>
+			<EnumVal ord="10">rad</EnumVal>
+			<EnumVal ord="11">sr</EnumVal>
+			<EnumVal ord="21">Gy</EnumVal>
+			<EnumVal ord="22">q</EnumVal>
+			<EnumVal ord="23">°C</EnumVal>
+			<EnumVal ord="24">Sv</EnumVal>
+			<EnumVal ord="25">F</EnumVal>
+			<EnumVal ord="26">C</EnumVal>
+			<EnumVal ord="27">S</EnumVal>
+			<EnumVal ord="28">H</EnumVal>
+			<EnumVal ord="29">V</EnumVal>
+			<EnumVal ord="30">ohm</EnumVal>
+			<EnumVal ord="31">J</EnumVal>
+			<EnumVal ord="32">N</EnumVal>
+			<EnumVal ord="33">Hz</EnumVal>
+			<EnumVal ord="34">lx</EnumVal>
+			<EnumVal ord="35">Lm</EnumVal>
+			<EnumVal ord="36">Wb</EnumVal>
+			<EnumVal ord="37">T</EnumVal>
+			<EnumVal ord="38">W</EnumVal>
+			<EnumVal ord="39">Pa</EnumVal>
+			<EnumVal ord="41">m²</EnumVal>
+			<EnumVal ord="42">m³</EnumVal>
+			<EnumVal ord="43">m/s</EnumVal>
+			<EnumVal ord="44">m/s²</EnumVal>
+			<EnumVal ord="45">m³/s</EnumVal>
+			<EnumVal ord="46">m/m³</EnumVal>
+			<EnumVal ord="47">M</EnumVal>
+			<EnumVal ord="48">kg/m³</EnumVal>
+			<EnumVal ord="49">m²/s</EnumVal>
+			<EnumVal ord="50">W/m K</EnumVal>
+			<EnumVal ord="51">J/K</EnumVal>
+			<EnumVal ord="52">ppm</EnumVal>
+			<EnumVal ord="53">1/s</EnumVal>
+			<EnumVal ord="54">rad/s</EnumVal>
+			<EnumVal ord="61">VA</EnumVal>
+			<EnumVal ord="62">Watts</EnumVal>
+			<EnumVal ord="63">VAr</EnumVal>
+			<EnumVal ord="64">phi</EnumVal>
+			<EnumVal ord="65">cos(phi)</EnumVal>
+			<EnumVal ord="66">Vs</EnumVal>
+			<EnumVal ord="67">V²</EnumVal>
+			<EnumVal ord="68">As</EnumVal>
+			<EnumVal ord="69">A²</EnumVal>
+			<EnumVal ord="70">A²t</EnumVal>
+			<EnumVal ord="71">VAh</EnumVal>
+			<EnumVal ord="72">Wh</EnumVal>
+			<EnumVal ord="73">VArh</EnumVal>
+			<EnumVal ord="74">V/Hz</EnumVal>
+		</EnumType>
+		<EnumType id="dir">
+			<!--Source: IEC 61850-7-3:2003-->
+			<EnumVal ord="0">unknown</EnumVal>
+			<EnumVal ord="1">forward</EnumVal>
+			<EnumVal ord="2">backward</EnumVal>
+			<EnumVal ord="3">both</EnumVal>
+		</EnumType>
+		<EnumType id="angid">
+			<!--Source: IEC 61850-7-3:2003-->
+			<EnumVal ord="0">Va</EnumVal>
+			<EnumVal ord="1">Vb</EnumVal>
+			<EnumVal ord="2">Vc</EnumVal>
+			<EnumVal ord="3">Aa</EnumVal>
+			<EnumVal ord="4">Ab</EnumVal>
+			<EnumVal ord="5">Ac</EnumVal>
+			<EnumVal ord="6">Vab</EnumVal>
+			<EnumVal ord="7">Vbc</EnumVal>
+			<EnumVal ord="8">Vca</EnumVal>
+			<EnumVal ord="9">Vother</EnumVal>
+			<EnumVal ord="10">Aother</EnumVal>
+		</EnumType>
+		<EnumType id="seqT">
+			<!--Source: IEC 61850-7-3:2003-->
+			<EnumVal ord="0">pos-neg-zero</EnumVal>
+			<EnumVal ord="1">dir-quad-zero</EnumVal>
+		</EnumType>
+		<EnumType id="AutoRecSt">
+			<!--Source: IEC 61850-7-4:2003-->
+			<EnumVal ord="1">Ready</EnumVal>
+			<EnumVal ord="2">In Progress</EnumVal>
+			<EnumVal ord="3">Successful</EnumVal>
+		</EnumType>
+		<EnumType id="Beh">
+			<!--Source: IEC 61850-7-4:2003-->
+			<EnumVal ord="1">on</EnumVal>
+			<EnumVal ord="2">blocked</EnumVal>
+			<EnumVal ord="3">test</EnumVal>
+			<EnumVal ord="4">test/blocked</EnumVal>
+			<EnumVal ord="5">off</EnumVal>
+		</EnumType>
+		<EnumType id="CBOpCap">
+			<!--Source: IEC 61850-7-4:2003-->
+			<EnumVal ord="1">None</EnumVal>
+			<EnumVal ord="2">Open</EnumVal>
+			<EnumVal ord="3">Close-Open</EnumVal>
+			<EnumVal ord="4">Open-Close-Open</EnumVal>
+			<EnumVal ord="5">Close-Open-Close-Open</EnumVal>
+		</EnumType>
+		<EnumType id="Health">
+			<!--Source: IEC 61850-7-4:2003-->
+			<EnumVal ord="1">Ok</EnumVal>
+			<EnumVal ord="2">Warning</EnumVal>
+			<EnumVal ord="3">Alarm</EnumVal>
+		</EnumType>
+		<EnumType id="Mod">
+			<!--Source: IEC 61850-7-4:2003-->
+			<EnumVal ord="1">on</EnumVal>
+			<EnumVal ord="2">blocked</EnumVal>
+			<EnumVal ord="3">test</EnumVal>
+			<EnumVal ord="4">test/blocked</EnumVal>
+			<EnumVal ord="5">off</EnumVal>
+		</EnumType>
+	</DataTypeTemplates>
+</SCL>
