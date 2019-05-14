@@ -38,7 +38,7 @@ Todo
 
 ## Others
 
-**Scenario folder: ** each folder represents one scenario, it contains
+**Scenario folder:**  each folder represents one scenario, it contains
 
 	
 1. One pcap file: captures GOOSE packets from 18 IEDs during 10 mins. 	
