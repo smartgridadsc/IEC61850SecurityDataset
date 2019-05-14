@@ -1,12 +1,12 @@
 # IEC61850SecurityDataset
-This repository contains network traces that describe GOOSE communications in a substation. The reference one-diagram used for generating the network traces is shown in Figure 1. It consists of 4-buses, and 18 LEDs. The line feeders (1-6) are connected to different loads while the rest of the feeders connect to other nearby substations to provide redundancy. The IEDs communicate among themselves using the GOOSE protocol defined in the IEC 61850 standard. Based on the substation diagram, we consider three scenarios to generate the network traces
+This repository contains network traces that describe GOOSE communications in a substation. The reference one-line diagram used for generating the network traces is shown in Figure 1. It consists of 4-buses, and 18 LEDs. The line feeders (1-6) are connected to different loads while the rest of the feeders connect to other nearby substations to provide redundancy. The IEDs communicate among themselves using the GOOSE protocol defined in the IEC 61850 standard. Based on the substation diagram, we consider three scenarios to generate the network traces
 
 ![one-line substation diagram](one_line.png)
 
 
 ## Normal Scenario
 There are 18 IEDs in substation including Line Feeder IEDs, Transformer Feeder IEDs, Bus IED and Under Frequency Load Shedding IEDs.
-Those IEDs send multicast packets every second to share and update their status. 
+These IEDs send multicast packets every second to share and update their status. Under a normal scenario where there is no disturbance or attack, the sqNum of GOOSE will increment with every transmission of GOOSE frame, while the stNum and timestamp values remains unchanged.
 ## Disturbance Scenario
 
 We consider 3 representative disturbance scenarios under which substation protection system operates. 
@@ -34,29 +34,29 @@ We consider 3 representative disturbance scenarios under which substation protec
 
 ## Attack Scenario
 
-We generated three variants of stNum attacks and a composite attack comprising stNum and Boolean modifications to demonstrate practical GOOSE attacks. These generated attacks were intermixed with normal GOOSE traffic from the Normal.pcapng file under the Normal/No_Variable_Loading directory. The duration of each PCAP file is 10mins. The details are as follows.
+We generated three variants of stNum attacks and a composite attack comprising stNum and Boolean modifications to demonstrate practical GOOSE attacks. These generated attacks were intermixed with normal GOOSE traffic from the Normal.pcapng file, which can be found under the Normal/No_Variable_Loading directory. The duration of each PCAP file is 10mins. The details are as follows.
 
 **Name: StNum1.pcapng**
 
-Description: Inject a high stNum value or slightly higher than the previously recorded stNum, where sqNum≠0.
-	LIED10 injects a GOOSE frame with stNum=9999 and sqNum=10 at time= 13.9 sec.
-	LIED12 injects a GOOSE frame with stNum=5 and sqNum=15 at time= 18.9 sec.
+**Description:** Inject a high stNum value or slightly higher than the previously recorded stNum, where sqNum≠0.
+	* LIED10 injects a GOOSE frame with stNum=9999 and sqNum=10 at time= 13.9 sec.
+ 	* LIED12 injects a GOOSE frame with stNum=5 and sqNum=15 at time= 18.9 sec.
 
 **Name: StNum2.pcapng**
 
-Description: Replay a previously valid GOOSE frame containing high stNum, sqNum =0 but stale timestamp
-	LIED10 replays a GOOSE frame with stNum=9999 and sqNum=0 at time= 12.6 sec.
+**Description:** Replay a previously valid GOOSE frame containing high stNum, sqNum =0 but stale timestamp
+	* LIED10 replays a GOOSE frame with stNum=9999 and sqNum=0 at time= 12.6 sec.
 
 **Name: stNum3.pcapng**
 
-Description:  Inject a high stNum frame with sqNum = 0 and a valid timestamp.
-	LIED10 injects a GOOSE frame with stNum=9999 and sqNum=0 at time= 10.4 sec, where the timestamp of the injected GOOSE frame > previously received GOOSE frames.
+**Description:** Inject a high stNum frame with sqNum = 0 and a valid timestamp.
+	* LIED10 injects a GOOSE frame with stNum=9999 and sqNum=0 at time= 10.4 sec, where the timestamp of the injected GOOSE frame > previously received GOOSE frames.
 
 **Name: Attack.pcapng**
 
-Description: Inject high stNum attack followed by modifying the circuit breaker status associated with CB-11. 
-	LIED11 injects a GOOSE frame with stNum=9999 and sqNum=0 at time=11.3 sec
-	LIED11 modifies the Boolean value of CB-11 from ‘1’ to ‘0’ and injects the modified GOOSE frame at time=16.3 sec. 
+**Description:** Inject high stNum attack followed by modifying the circuit breaker status associated with CB-11. 
+	* LIED11 injects a GOOSE frame with stNum=9999 and sqNum=0 at time=11.3 sec
+	* LIED11 modifies the Boolean value of CB-11 from ‘1’ to ‘0’ and injects the modified GOOSE frame at time=16.3 sec. 
 
 
 ## Others
