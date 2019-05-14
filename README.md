@@ -4,11 +4,11 @@ This repository contains network traces that describe GOOSE communications in a 
 ![one-line substation diagram](one_line.png)
 
 
-**1. Normal Scenario
+**1. Normal Scenario**
 
-**2. Disturbance Scenario
+**2. Disturbance Scenario**
 
-**3. Attack Scenario
+**3. Attack Scenario**
 
 
 Each folder represents one scenario, it contains： 
