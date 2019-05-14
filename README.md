@@ -1,15 +1,16 @@
 # IEC61850SecurityDataset
-This repository contains network traces that describe GOOSE communications in a substation. The reference one-line diagram used for generating the network traces is shown in Figure 1. It consists of 4-buses, and 18 LEDs. The line feeders (1-6) are connected to different loads while the rest of the feeders connect to other nearby substations to provide redundancy. The IEDs communicate among themselves using the GOOSE protocol defined in the IEC 61850 standard. Based on the substation diagram, we consider three scenarios to generate the network traces
+This repository contains network traces that describe GOOSE communications in a substation. The reference one-line diagram used for generating the network traces is shown in Figure 1. It consists of 4-buses and 18 LEDs. Line feeders (1-6) are connected to different loads while the remaining feeders connect the substation to other nearby substations to provide redundancy. The IEDs communicate with  each other using the GOOSE protocol defined in the IEC 61850 standard. Based on the one-line diagram, we generate multiple GOOSE network traces to represent normal, disturbance and attack scenarios.
 
 ![one-line substation diagram](one_line.png)
-
+<p align="center">Figure 1: Substation one-line diagram<p align="center">
 
 ## Normal Scenario
 There are 18 IEDs in substation including Line Feeder IEDs, Transformer Feeder IEDs, Bus IED and Under Frequency Load Shedding IEDs.
-These IEDs send multicast packets every second to share and update their status. Under a normal scenario where there is no disturbance or attack, the sqNum of GOOSE will increment with every transmission of GOOSE frame, while the stNum and timestamp values remains unchanged.
+These IEDs send multicast packets every second to share and update their status. For each transmission of a GOOSE frame under a normal scenario, the stNum and timestamp values remain the same, but the sqNum is incremented. This behavior is captured in the Normal.pcapng stored under the following directory: Normal/No_Variable_Loading.
+
 ## Disturbance Scenario
 
-We consider 3 representative disturbance scenarios under which substation protection system operates. 
+We consider three disturbance scenarios under which substation protection system operates and created three representative network traces namely, BusbarProtection.pcapng, BreakFailure.pcapng, and UnderFrequency.pcapng.
 
 **Busbar protection** 
 
