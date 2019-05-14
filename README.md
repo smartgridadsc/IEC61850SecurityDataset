@@ -7,6 +7,7 @@ This repository contains network traces that describe GOOSE communications in a 
 **1. Normal Scenario**
 
 **2. Disturbance Scenario**
+Besides the communication under the normal operation, we consider 3 representative disturbance scenarios(Busbar protection, Breaker failure protection and Underfrequencey load-shedding) under which substation protection system operates. These are not attacks, but abnormal operation due to faults in the power system. Under normal operation, these scenarios do not exist.
 
 **3. Attack Scenario**
 
