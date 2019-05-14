@@ -4,9 +4,9 @@ This repository contains network traces that describe GOOSE communications in a 
 ![one-line substation diagram](one_line.png)
 
 
-###### Normal Scenario
+## Normal Scenario
 
-###### Disturbance Scenario
+## Disturbance Scenario
 
 We consider 3 representative disturbance scenarios under which substation protection system operates. 
 
@@ -31,7 +31,7 @@ We consider 3 representative disturbance scenarios under which substation protec
 5. Between each two stages of tripping there is a time delay of 2-4 seconds. The trip is initiated via GOOSE communication to respective IEDs such as LIED43, LIED42, LIED32, etc.
 
 
-###### Attack Scenario
+## Attack Scenario
 
 
 Each folder represents one scenario, it contains： 
