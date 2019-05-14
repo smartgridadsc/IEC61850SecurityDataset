@@ -5,8 +5,8 @@ This repository contains network traces that describe GOOSE communications in a 
 
 
 ## Normal Scenario
-There are 18 IEDs in substation including Line Feeder LIEDs, Transformer Feeder IEDs, Bus IED and Under Frequency Load Shedding IEDs.
-Those IEDs send multicast packets every second to share and update their onw status. 
+There are 18 IEDs in substation including Line Feeder IEDs, Transformer Feeder IEDs, Bus IED and Under Frequency Load Shedding IEDs.
+Those IEDs send multicast packets every second to share and update their status. 
 ## Disturbance Scenario
 
 We consider 3 representative disturbance scenarios under which substation protection system operates. 
