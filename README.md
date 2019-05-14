@@ -5,7 +5,8 @@ This repository contains network traces that describe GOOSE communications in a 
 
 
 ## Normal Scenario
-
+There are 18 IEDs in substation including Line Feeder LIEDs, Transformer Feeder IEDs, Bus IED and Under Frequency Load Shedding IEDs.
+Those IEDs send multicast packets every second to share and update their onw status. 
 ## Disturbance Scenario
 
 We consider 3 representative disturbance scenarios under which substation protection system operates. 
@@ -33,16 +34,17 @@ We consider 3 representative disturbance scenarios under which substation protec
 
 ## Attack Scenario
 
+Todo
+
 ## Others
 
 **Scenario folder: each folder represents one scenario, it contains:**
 	
-	1. One pcap file: captures GOOSE packets from 18 IEDs during 10 mins. 
-	
-	2. 18 csv files: list transmitted data from 18 IEDs at every second during 10 mins. But the attacking scenario is based on normal scenario's trasmission traffic, so CSVs in Attack folder are the same with Normal's.
+1. One pcap file: captures GOOSE packets from 18 IEDs during 10 mins. 	
+2. 18 csv files: list transmitted data from 18 IEDs at every second during 10 mins. But the attacking scenario is based on normal scenario's trasmission traffic, so CSVs in Attack folder are the same with Normal's.
 
 **SCL folder:**
 	
-	It contains 18 IID files to define configuration of 18 IEDs. It also discribes data exchange format from IEDs. From those file, you can understand the structure of payload in pcap files.
+It contains 18 IID files to define configuration of 18 IEDs. It also discribes data exchange format from IEDs. From those file, you can understand the structure of payload in pcap files.
 
 
