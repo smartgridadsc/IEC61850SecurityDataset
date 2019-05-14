@@ -8,7 +8,16 @@ This repository contains network traces that describe GOOSE communications in a 
 
 **2. Disturbance Scenario**
 
-Besides the communication under the normal operation, we consider 3 representative disturbance scenarios(Busbar protection, Breaker failure protection and Underfrequencey load-shedding) under which substation protection system operates. These are not attacks, but abnormal operation due to faults in the power system. Under normal operation, these scenarios do not exist.
+We consider 3 representative disturbance scenarios(,  and ) under which substation protection system operates. 
+*Busbar protection* 
+
+Let us consider that a fault occurs at busbar 66kV bus-1. The incomer line LIED10 will pick up on overcurrent, the other IEDs wont.
+The incomer line LIED10 will know through GOOSE communication that the overcurrent elements of other IEDs have not picked up.
+The incomer line LIED10 will quickly realise of busbar fault and trigger a trip to its own breaker CB-10 first and subsequently to the breakers associated with the busbars i.e., CB-11, CB-12 and CB-13.
+The trip status of CB-10 is sent by LIED10 through GOOSE communication to LIED11, LIED12 and TIED13 to trigger trip for their respective breakers.
+
+*Breaker failure protection*
+*Underfrequencey load-shedding*
 
 **3. Attack Scenario**
 
