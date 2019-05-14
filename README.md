@@ -7,13 +7,16 @@ This repository contains network traces that describe GOOSE communications in a 
 **1. Normal Scenario**
 
 **2. Disturbance Scenario**
+
 Besides the communication under the normal operation, we consider 3 representative disturbance scenarios(Busbar protection, Breaker failure protection and Underfrequencey load-shedding) under which substation protection system operates. These are not attacks, but abnormal operation due to faults in the power system. Under normal operation, these scenarios do not exist.
 
 **3. Attack Scenario**
 
 
 Each folder represents one scenario, it contains： 
+	
 	1. One pcap file: captures GOOSE packets from 18 IEDs during 10 mins. 
+	
 	2. 18 csv files: list transmitted data from 18 IEDs at every second during 10 mins.
 
 But the attacking scenario is based on normal scenario's trasmission traffic, so there is no specific CSV in Attack folder.
