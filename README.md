@@ -35,12 +35,12 @@ We consider 3 representative disturbance scenarios under which substation protec
 
 ## Others
 
-**Scenario folder: each folder represents one scenario, it contains： **
+**Scenario folder: each folder represents one scenario, it contains:**
 	
 	1. One pcap file: captures GOOSE packets from 18 IEDs during 10 mins. 
 	
 	2. 18 csv files: list transmitted data from 18 IEDs at every second during 10 mins.
-**SCL folder： **
+**SCL folder:**
 	
 	It contains 18 IID files to define configuration of 18 IEDs. It also discribes data exchange format from IEDs. From those file, you can understand the structure of payload in pcap files.
 
