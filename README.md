@@ -37,16 +37,23 @@ We consider 3 representative disturbance scenarios under which substation protec
 We generated three variants of stNum attacks and a composite attack comprising stNum and Boolean modifications to demonstrate practical GOOSE attacks. These generated attacks were intermixed with normal GOOSE traffic from the Normal.pcapng file under the Normal/No_Variable_Loading directory. The duration of each PCAP file is 10mins. The details are as follows.
 
 **Name: StNum1.pcapng**
+
 Description: Inject a high stNum value or slightly higher than the previously recorded stNum, where sqNum≠0.
 	LIED10 injects a GOOSE frame with stNum=9999 and sqNum=10 at time= 13.9 sec.
 	LIED12 injects a GOOSE frame with stNum=5 and sqNum=15 at time= 18.9 sec.
+
 **Name: StNum2.pcapng**
+
 Description: Replay a previously valid GOOSE frame containing high stNum, sqNum =0 but stale timestamp
 	LIED10 replays a GOOSE frame with stNum=9999 and sqNum=0 at time= 12.6 sec.
+
 **Name: stNum3.pcapng**
+
 Description:  Inject a high stNum frame with sqNum = 0 and a valid timestamp.
 	LIED10 injects a GOOSE frame with stNum=9999 and sqNum=0 at time= 10.4 sec, where the timestamp of the injected GOOSE frame > previously received GOOSE frames.
+
 **Name: Attack.pcapng**
+
 Description: Inject high stNum attack followed by modifying the circuit breaker status associated with CB-11. 
 	LIED11 injects a GOOSE frame with stNum=9999 and sqNum=0 at time=11.3 sec
 	LIED11 modifies the Boolean value of CB-11 from ‘1’ to ‘0’ and injects the modified GOOSE frame at time=16.3 sec. 
