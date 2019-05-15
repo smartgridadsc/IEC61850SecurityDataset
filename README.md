@@ -82,5 +82,5 @@ We generated three variants of stNum attacks and a composite attack comprising s
 	
 It contains 18 IID files to define configuration of 18 IEDs. It also discribes data exchange format from IEDs. From those file, you can understand the structure of payload in pcap files.
 
-**Note:** This repository will be updated as new trace file is gathered.
+**Note:** This repository will be updated as new trace file becomes available.
 
