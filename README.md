@@ -49,13 +49,17 @@ We generated three variants of stNum attacks and a composite attack comprising s
 
 **Description:** Replay a previously valid GOOSE frame containing high stNum, sqNum =0 but stale timestamp
 	
-	- LIED10 replays a GOOSE frame with stNum=9999 and sqNum=0 at time= 12.6 sec.
+	- LIED10 replays a GOOSE frame with stNum=9999 and sqNum=0 at time= 10.4 sec.
+	
+	- LIED12 replays a GOOSE frame with stNum=5 and sqNum=0 at time= 15.5 sec.
 
 **Name: stNum3.pcapng**
 
 **Description:** Inject a high stNum frame with sqNum = 0 and a valid timestamp.
 	
 	- LIED10 injects a GOOSE frame with stNum=9999 and sqNum=0 at time= 10.4 sec, where the timestamp of the injected GOOSE frame > previously received GOOSE frames.
+	
+	- LIED12 injects a GOOSE frame with stNum=5 and sqNum=0 at time=15.5 sec, where the timestamp of the injected GOOSE frame > previously received GOOSE frames.
 
 **Name: Attack.pcapng**
 
@@ -78,4 +82,5 @@ We generated three variants of stNum attacks and a composite attack comprising s
 	
 It contains 18 IID files to define configuration of 18 IEDs. It also discribes data exchange format from IEDs. From those file, you can understand the structure of payload in pcap files.
 
+**Note:** This repository will be updated as new trace file is gathered.
 
