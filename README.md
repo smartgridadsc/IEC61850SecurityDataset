@@ -1,5 +1,5 @@
 # IEC61850SecurityDataset
-This repository contains network traces that describe GOOSE communications in a substation. The reference one-line diagram used for generating the network traces is shown in Figure 1. It consists of 4-buses and 18 LEDs. Line feeders (1-6) are connected to different loads while the remaining feeders connect the substation to other nearby substations to provide redundancy. The IEDs communicate with  each other using the GOOSE protocol defined in the IEC 61850 standard. Based on the one-line diagram, we generate multiple GOOSE network traces to represent normal, disturbance and attack scenarios.
+This repository contains network traces that describe GOOSE communications in a substation. Figure 1 shows the one-line diagram used for generating the network traces. It consists of 4-buses and 18 LEDs. Line feeders (1-6) are connected to different loads while the remaining feeders connect the substation to other nearby substations to provide redundancy. The IEDs communicate with each other using the GOOSE protocol defined in the IEC 61850 standard. Based on the one-line diagram, we generate multiple GOOSE network traces to represent normal, disturbance, and attack scenarios.
 
 ![one-line substation diagram](one_line.png)
 <p align="center">Figure 1: Substation one-line diagram<p align="center">
@@ -10,7 +10,7 @@ These IEDs send multicast packets every second to share and update their status.
 
 ## Disturbance Scenario
 
-We consider three disturbance scenarios under which substation protection system operates and created three representative network traces namely, BusbarProtection.pcapng, BreakFailure.pcapng, and UnderFrequency.pcapng.
+We consider three disturbance scenarios under which the substation protection system operates and created three representative network traces, namely BusbarProtection.pcapng, BreakFailure.pcapng, and UnderFrequency.pcapng.
 
 **Busbar protection**
 
