@@ -37,14 +37,15 @@ We consider three disturbance scenarios under which substation protection system
 Table 1 lists the different types of GOOSE attacks and the tactics for implementing them. In short, a denial of service (DoS) attack is a malicious attempt by an attacker to block a legitimate IED from accessing a particular resource through flooding. A message suppression (MS) attack refers to the hijacking of the communication channel by modifying the GOOSE header fields to prevent legitimate IEDs from receiving critical messages or updates. Data Manipulation (DM) refers to the process of injecting modified network payloads into the network to mask unauthorized changes. The different GOOSE-related attacks are organized into three subfolders under the Attack directory. Each subfolder contains attack trace(s) generated using the Normal.pcapng as a baseline. The duration of each PCAP file is 10 minutes. Description of each file is explained below.
 
 |Attacks|Tactics|
-|DoS.1| - Flood bogus frames|
-|MS.1| - Inject GOOSE sequence number (sqNum)|
-|MS.2| - Inject GOOSE status number (stNum)|
-|DM.1| - Modify current measurements reported by the merging units|
-|DM.2| - Inject modified Boolean value of circuit breaker|
-|DM.3| - Replay a previously valid message|
+|:-------|:------------------------------------------------------------|
+|DoS.1  | - Flood bogus frames                                         |
+|MS.1   | - Inject GOOSE sequence number (sqNum)                       |
+|MS.2   | - Inject GOOSE status number (stNum)                         |
+|DM.1   | - Modify current measurements reported by the merging units  |
+|DM.2   | - Inject modified Boolean value of circuit breaker           |
+|DM.3   | - Replay a previously valid message                          |
 
-###### Data Manipulation (DM)
+## Data Manipulation (DM)
 
 **Name: AS1.pcapng**
 
@@ -67,7 +68,7 @@ Table 1 lists the different types of GOOSE attacks and the tactics for implement
 **Name: AS3.pcapng**
 	- [place text here]
 
-###### Denial of Service (DoS)
+## Denial of Service (DoS)
 
 **Name: AS1.pcapng**
 
@@ -77,7 +78,7 @@ Table 1 lists the different types of GOOSE attacks and the tactics for implement
 
 	- LIED12 injects 5000 GOOSE frames between time= 54.7 sec and time= 68.3 sec
 
-###### Message Suppression (MS)
+## Message Suppression (MS)
 
 **Name: AS1.pcapng**
 
@@ -109,7 +110,7 @@ Table 1 lists the different types of GOOSE attacks and the tactics for implement
 
 	- LIED10 injects a GOOSE frame (No. 556) with sqNum=9999 at time= 12.7 sec
 
-###### Others
+## Others
 **Name: CompositeAttack.pcapng**
 
 **Attack scenario:** Inject high stNum attack followed by modifying the circuit breaker status associated with CB-11.
