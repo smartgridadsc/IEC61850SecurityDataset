@@ -44,7 +44,7 @@ Table 1 lists the different types of GOOSE attacks and the tactics for implement
 |DM.2| - Inject modified Boolean value of circuit breaker|
 |DM.3| - Replay a previously valid message|
 
-- Data Manipulation (DM)
+###### Data Manipulation (DM)
 
 **Name: AS1.pcapng**
 
@@ -67,7 +67,7 @@ Table 1 lists the different types of GOOSE attacks and the tactics for implement
 **Name: AS3.pcapng**
 	- [place text here]
 
-- Denial of Service (DoS)
+###### Denial of Service (DoS)
 
 **Name: AS1.pcapng**
 
@@ -77,7 +77,7 @@ Table 1 lists the different types of GOOSE attacks and the tactics for implement
 
 	- LIED12 injects 5000 GOOSE frames between time= 54.7 sec and time= 68.3 sec
 
-- Message Suppression (MS)
+###### Message Suppression (MS)
 
 **Name: AS1.pcapng**
 
@@ -109,6 +109,7 @@ Table 1 lists the different types of GOOSE attacks and the tactics for implement
 
 	- LIED10 injects a GOOSE frame (No. 556) with sqNum=9999 at time= 12.7 sec
 
+###### Others
 **Name: CompositeAttack.pcapng**
 
 **Attack scenario:** Inject high stNum attack followed by modifying the circuit breaker status associated with CB-11.
@@ -118,7 +119,7 @@ Table 1 lists the different types of GOOSE attacks and the tactics for implement
 	- LIED11 modifies the Boolean value of CB-11 from ‘1’ to ‘0’ and injects the modified GOOSE frame (No. 792) at time=16.3 sec.
 
 
-## Others
+## Other Information
 
 **Scenario folder:**  each folder represents one scenario, it contains
 
@@ -131,3 +132,9 @@ Table 1 lists the different types of GOOSE attacks and the tactics for implement
 It contains 18 IID files to define configuration of 18 IEDs. It also discribes data exchange format from IEDs. From those file, you can understand the structure of payload in pcap files.
 
 **Note:** This repository will be updated as new trace file becomes available.
+
+## Reference
+Our dataset is free to download. However, please cite our paper accordingly.
+
+Partha Biswas, Heng Chuan Tan, Qingbo Zhu, Yuan Li, Daisuke Mashima, and Binbin Chen, "A Synthesized Dataset for Cybersecurity Study of IEC 61850 based Substation." To appear at IEEE SmartGridComm 2019.
+
