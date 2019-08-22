@@ -1,5 +1,5 @@
 # IEC61850SecurityDataset
-This repository contains network traces that describe GOOSE communications in a substation. Figure 1 shows the one-line diagram used for generating the network traces. It consists of 4-buses and 18 LEDs. Line feeders (1-6) are connected to different loads while the remaining feeders connect the substation to other nearby substations to provide redundancy. The IEDs communicate with each other using the GOOSE protocol defined in the IEC 61850 standard. Based on the one-line diagram, we generate multiple GOOSE network traces to represent normal, disturbance, and attack scenarios.
+This repository contains network traces that describe GOOSE communications in a substation. Figure 1 depicts a one-line diagram of a power system used for generating the network traces. It consists of 4-buses and 18 LEDs. As can be seen from the figure, the line feeders (1-6) are connected to different loads. The remaining feeder lines connect the substation to other substations where power is to be supplied to different consumers. The IEDs communicate with each other using the GOOSE protocol defined in the IEC 61850 standard. Based on the one-line diagram, we generate multiple GOOSE network traces to represent normal, disturbance, and attack scenarios.
 
 ![one-line substation diagram](one_line.png)
 <p align="center">Figure 1: Substation one-line diagram<p align="center">
@@ -34,7 +34,7 @@ We consider three disturbance scenarios under which the substation protection sy
 
 
 ## Attack Scenarios
-Table 1 lists the different types of GOOSE attacks and the tactics for implementing them. In short, a denial of service (DoS) attack is a malicious attempt by an attacker to block a legitimate IED from accessing a particular resource through flooding. A message suppression (MS) attack refers to the hijacking of the communication channel by modifying the GOOSE header fields to prevent legitimate IEDs from receiving critical messages or updates. Data Manipulation (DM) refers to the process of injecting modified network payloads into the network to mask unauthorized changes. The different GOOSE-related attacks are organized into three subfolders under the Attack directory. Each subfolder contains attack trace(s) generated using the Normal.pcapng as a baseline. The duration of each PCAP file is 10 minutes. Description of each file is explained below.
+Table 1 lists the different types of GOOSE attacks and the tactics for realizing them. In short, a denial of service (DoS) attack is a malicious attempt by an attacker to block a legitimate IED from accessing a particular resource through flooding. A message suppression (MS) attack refers to the hijacking of the communication channel by modifying the GOOSE header fields to prevent legitimate IEDs from receiving critical messages or updates. Data Manipulation (DM) refers to the process of injecting modified network payloads into the network to negatively impact the power grid stability or to mask unauthorized changes. These attacks are organized into three subfolders under the Attack directory where each subfolder contains attack trace(s) generated using the Normal.pcapng as a baseline. We also consider a more advanced attack scenario where an attacker combines multiple tactics to attack circuit breaker (CB-11). The duration of each PCAP file is 10 minutes and the details of each file are explained below.
 
 |Attacks|Tactics|
 |:-------|:------------------------------------------------------------|
@@ -63,7 +63,7 @@ Table 1 lists the different types of GOOSE attacks and the tactics for implement
 
 	- LIED11 injects a malicious GOOSE frame (No. 597) by toggling the status of the circuit breaker from FALSE to TRUE ('tripped') at time= 12.3 sec
 
-**Attack scenario 3:** Replay an old payload containing circuit breaker 'trip' status at a later time
+**Attack scenario 3:** Replay an old GOOSE payload containing circuit breaker 'trip' status and other protection, control messages
 
 **Name: AS3.pcapng**
 	- [place text here]
