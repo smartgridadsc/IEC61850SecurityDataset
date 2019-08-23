@@ -1,5 +1,5 @@
 # IEC61850SecurityDataset
-This repository contains network traces that describe GOOSE communications in a substation. Figure 1 depicts a one-line diagram of a power system used for generating the network traces. It consists of 4-buses and 18 LEDs. As can be seen from the figure, the line feeders (1-6) are connected to different loads. The remaining feeder lines connect the substation to other substations where power is to be supplied to different consumers. The IEDs communicate with each other using the GOOSE protocol defined in the IEC 61850 standard. Based on the one-line diagram, we generate multiple GOOSE network traces to represent normal, disturbance, and attack scenarios.
+This repository contains network traces that describe GOOSE communications in a substation. Figure 1 depicts the one-line diagram of a power system used for generating the network traces. It consists of 4-buses and 18 LEDs. As can be seen in the figure, the line feeders (1-6) are connected to different loads while the remaining feeder lines are connected to other substations. The IEDs communicate with each other using the GOOSE protocol defined in the IEC 61850 standard. Based on the one-line diagram, we generate multiple GOOSE network traces to represent normal, disturbance, and attack scenarios.
 
 ![one-line substation diagram](one_line.png)
 <p align="center">Figure 1: Substation one-line diagram<p align="center">
@@ -34,7 +34,7 @@ We consider three disturbance scenarios under which the substation protection sy
 
 
 ## Attack Scenarios
-Table 1 lists the different types of GOOSE attacks and the tactics for realizing them. In short, a denial of service (DoS) attack is a malicious attempt by an attacker to block a legitimate IED from accessing a particular resource through flooding. A message suppression (MS) attack refers to the hijacking of the communication channel by modifying the GOOSE header fields to prevent legitimate IEDs from receiving critical messages or updates. Data Manipulation (DM) refers to the process of injecting modified network payloads into the network to negatively impact the power grid stability or to mask unauthorized changes. These attacks are organized into three subfolders under the Attack directory where each subfolder contains attack trace(s) generated using the Normal.pcapng as a baseline. We also consider a more advanced attack scenario where an attacker combines multiple tactics to attack circuit breaker (CB-11). The duration of each PCAP file is 10 minutes and the details of each file are explained below.
+Table 1 lists the different types of GOOSE attacks and the tactics for realizing them. Basically, a denial of service (DoS) attack is a malicious attempt by an attacker to block a legitimate IED from accessing a particular resource through flooding. A message suppression (MS) attack refers to the hijacking of the communication channel by modifying the GOOSE header fields to prevent legitimate IEDs from receiving critical messages or updates. Data Manipulation (DM) refers to the process of injecting modified network payloads into the network to negatively impact the power grid stability or to mask unauthorized changes. These attacks are organized into three subfolders under the Attack directory where each subfolder contains attack trace(s) generated using the Normal.pcapng as a baseline. We also consider a more advanced attack scenario where an attacker combines multiple tactics to attack circuit breaker (CB-11). The duration of each PCAP file is 10 minutes, and the details of each file are as follows.
 
 |Attacks|Tactics|
 |:-------|:------------------------------------------------------------|
@@ -63,10 +63,12 @@ Table 1 lists the different types of GOOSE attacks and the tactics for realizing
 
 	- LIED11 injects a malicious GOOSE frame (No. 597) by toggling the status of the circuit breaker from FALSE to TRUE ('tripped') at time= 12.3 sec
 
-**Attack scenario 3:** Replay an old GOOSE payload containing circuit breaker 'trip' status and other protection, control messages
+**Attack scenario 3:** Replay an old GOOSE payload containing circuit breaker 'trip' status and other measurements messages
 
 **Name: AS3.pcapng**
-	- [place text here]
+	- LIED11 replays previously valid GOOSE frames (No. 2734 and No. 2764) containing "open" circuit breaker information at time= 53.8 sec and 54.8 sec
+
+	- LIED22 replays previously captured fault current measurements (No. 7847, No. 7901, No. 7955, No. 8009, and No. 8063) between time= 155.8 sec and 159.88 sec
 
 ## Denial of Service (DoS)
 
@@ -125,12 +127,12 @@ Table 1 lists the different types of GOOSE attacks and the tactics for realizing
 **Scenario folder:**  each folder represents one scenario, it contains
 
 
-1. One pcap file: captures GOOSE packets from 18 IEDs during 10 mins. 	
-2. 18 csv files: list transmitted data from 18 IEDs at every second during 10 mins. But the attacking scenario is based on normal scenario's trasmission traffic, so CSVs in Attack folder are the same with Normal's.
+1. PCAP files: captures GOOSE packets from 18 IEDs during 10 mins. 	
+2. 18 CSV files: list transmitted data from 18 IEDs at every second during 10 mins. Since the attacking scenario is based on the normal scenario's transmission traffic, so the CSV files in the Attack directory are the same as the files in the normal directory.
 
 **SCL folder:**
 
-It contains 18 IID files to define configuration of 18 IEDs. It also discribes data exchange format from IEDs. From those file, you can understand the structure of payload in pcap files.
+It contains 18 IID files to define the configuration of 18 IEDs. It also describes the data exchange format and the related data attributes for each IED. From those files, you can understand the payload structure in the PCAP files.
 
 **Note:** This repository will be updated as new trace file becomes available.
 
@@ -138,4 +140,3 @@ It contains 18 IID files to define configuration of 18 IEDs. It also discribes d
 Our dataset is free to download. However, please cite our paper accordingly.
 
 Partha Biswas, Heng Chuan Tan, Qingbo Zhu, Yuan Li, Daisuke Mashima, and Binbin Chen, "A Synthesized Dataset for Cybersecurity Study of IEC 61850 based Substation." To appear at IEEE SmartGridComm 2019.
-
