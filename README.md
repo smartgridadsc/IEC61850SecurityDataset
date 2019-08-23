@@ -63,9 +63,10 @@ Table 1 lists the different types of GOOSE attacks and the tactics for realizing
 
 	- LIED11 injects a malicious GOOSE frame (No. 597) by toggling the status of the circuit breaker from FALSE to TRUE ('tripped') at time= 12.3 sec
 
+**Name: AS3.pcapng**
+
 **Attack scenario 3:** Replay an old GOOSE payload containing circuit breaker 'trip' status and other measurements messages
 
-**Name: AS3.pcapng**
 	- LIED11 replays previously valid GOOSE frames (No. 2734 and No. 2764) containing "open" circuit breaker information at time= 53.8 sec and 54.8 sec
 
 	- LIED22 replays previously captured fault current measurements (No. 7847, No. 7901, No. 7955, No. 8009, and No. 8063) between time= 155.8 sec and 159.88 sec
