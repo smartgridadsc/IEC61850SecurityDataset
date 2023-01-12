@@ -1,5 +1,5 @@
 # IEC61850SecurityDataset
-This repository contains network traces that describe GOOSE communications in a substation. Figure 1 depicts the one-line diagram of a power system used for generating the network traces. It consists of 4-buses and 18 LEDs. As can be seen in the figure, the line feeders (1-6) are connected to different loads while the remaining feeder lines are connected to other substations. The IEDs communicate with each other using the GOOSE protocol defined in the IEC 61850 standard. Based on the one-line diagram, we generate multiple GOOSE network traces to represent normal, disturbance, and attack scenarios.
+This repository contains network traces that describe GOOSE communications in a substation. Figure 1 depicts the one-line diagram of a power system used for generating the network traces. It consists of 4-buses and 18 IEDs. As can be seen in the figure, the line feeders (1-6) are connected to different loads while the remaining feeder lines are connected to other substations. The IEDs communicate with each other using the GOOSE protocol defined in the IEC 61850 standard. Based on the one-line diagram, we generate multiple GOOSE network traces to represent normal, disturbance, and attack scenarios.
 
 ![one-line substation diagram](one_line.png)
 <p align="center">Figure 1: Substation one-line diagram<p align="center">
